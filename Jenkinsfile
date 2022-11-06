@@ -5,11 +5,13 @@ pipeline {
             steps {
                 sh '''
                 file=release.yml
-                while read -r linea;
+                while IFS= read -r linea;
                 do
                 lineauno=$(cut -d ":" -f1 file)
                 lineados=$(cut -d ":" -f2 file)
                 echo "El nombre es $lineauno y su version es $lineados"
+                 // cambioversion=$(sed 's/5/10/g' file)
+                // echo " La versión anterior de $lineauno era $lineados y ahora es $cambioversion"
                 done
                     '''
                 }
