@@ -4,8 +4,7 @@ pipeline {
         stage ('Ejercicio3') {
             steps {
                 sh '''
-                IFS=$'\n'
-                for linea in `cat release.yml`
+                while read linea;
                 do
                 lineauno=`echo $lineauno | cut -d ":" -f1`
                 lineados=`echo $lineados | cut -d ":" -f2`
