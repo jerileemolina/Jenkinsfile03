@@ -6,11 +6,11 @@ pipeline {
                 sh '''
                 for variable in ('cat release.yml')
                 do
-                variable={string: -1}
-                echo $variable
+                nombre_java=`echo $variable | cut -d ":" -f1`
+                version_guardada=`echo $variable | cut -d ":" -f2`
+                echo "$nombre_java es la version $version_guardada"
                 done
                 '''
-
                 }
             }
         }
