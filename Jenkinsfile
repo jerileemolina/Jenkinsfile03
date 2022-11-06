@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh '''
                 IFS=$'\n'
-                for linea in $(cat release.yml)
+                for linea in `cat release.yml`
                 do
                 lineauno=`echo $lineauno | cut -d ":" -f1`
                 lineados=`echo $lineados | cut -d ":" -f2`
