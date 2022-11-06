@@ -4,11 +4,12 @@ pipeline {
         stage ('Ejercicio3') {
             steps {
                 sh '''
-                for variable in `cat release.yml`
+                IFS=$'\n'
+                for linea in $(cat release.yml)
                 do
-                nombre_java=`echo $variable | cut -d ":" -f1`
-                version_guardada=`echo $variable | cut -d ":" -f2`
-                echo "$nombre_java es la version $version_guardada"
+                lineauno="$(cut -d ":" -f1)"
+                lineados="$(cut -d ":" -f2)"
+                echo " El nombre es $lineauno y su version es $lineados"
                 done
                     '''
                 }
