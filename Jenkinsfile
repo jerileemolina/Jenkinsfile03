@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+    agent any
     stages {
         stage ('Ejercicio3') {
             steps {
@@ -7,8 +7,8 @@ pipeline {
                 file=release.yml
                 while read -r linea;
                 do
-                lineauno=$(echo${linea}|cut -d ":" -f1 file)
-                lineados=$(echo${linea}|cut -d ":" -f2 file)
+                lineauno=$(echo $linea|awk -F ":" {'print $1})
+                lineados=$(echo $linea|awk -F ":" {'print $2})
                 echo "El nombre es $lineauno y su version es $lineados"
                 done
                     '''
