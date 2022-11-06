@@ -6,9 +6,9 @@ pipeline {
                 sh '''
                 while read -r linea;
                 do
-                lineauno=`echo $linea | cut -d ":" -f1 release.yml`
-                lineados=`echo $linea | cut -d ":" -f2 release.yml`
-                echo " El nombre es $lineauno y su version es $lineados"
+                lineauno=$(cut -d ":" -f1 release.yml)
+                lineados=$(cut -d ":" -f2 release.yml)
+                echo "El nombre es $lineauno y su version es $lineados"
                 done
                     '''
                 }
