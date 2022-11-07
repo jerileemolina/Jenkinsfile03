@@ -11,7 +11,6 @@ pipeline {
                 echo "Y la versión de $(echo "$i" | cut -d ":" -f1) ahora es$(echo "$i" |sed's/5/10'g)"
                 done
                     '''
-                    
                 }
             }
         }
