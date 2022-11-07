@@ -4,11 +4,10 @@ pipeline {
         stage ('Ejercicio3') {
             steps {
                 sh '''
-                read -p "Introduce la versión que quieres modificar:" version
-                echo "Has elegido la versión $version"
-                if ((version == 0.0.5)) {
-                    echo " La versión actual de APP_JAVA_INT es $version"
-                }
+                IFS=$'\n' 
+                for i in $(cat release.yml)
+                do 
+                "La versión de $(echo "$i" | cut -d ":" -f1) es$(echo "$i" | cut -d ":" -f2) y ahora es $(echo "$i" | cut -d ":" -f2 | sed 's /5/10/g')" 
                 done
                     '''
                 }
